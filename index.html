@@ -1,0 +1,3836 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_67cf0721ac232efd3fa57f11da37effa {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-dvf/0.3.0/leaflet-dvf.markers.min.js"></script>
+</head>
+<body>
+    
+    <script>var map = null;</script>
+    
+<script>
+    var map = null;
+    document.addEventListener("DOMContentLoaded", function() {
+        map = window._initMap || document.querySelector(".folium-map").__leaflet_map__;
+    });
+</script>
+    
+            <div class="folium-map" id="map_67cf0721ac232efd3fa57f11da37effa" ></div>
+        
+    
+<div style="
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    width: 240px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: white;
+    border:2px solid grey;
+    z-index:9999;
+    font-size:14px;
+    padding:10px;
+">
+<b>Legend</b><br>
+<div style='margin-top:5px'>
+    <span style="display:inline-block;width:12px;height:12px;background:red;border-radius:6px;margin-right:8px;"></span>Yard/Site<br>
+    <span style="display:inline-block;width:12px;height:12px;background:blue;border-radius:6px;margin-right:8px;"></span>Customer<br>
+    <span style="display:inline-block;width:12px;height:12px;background:orange;border-radius:6px;margin-right:8px;"></span>Container Yard<br>
+    <span style="display:inline-block;width:12px;height:12px;background:green;border-radius:6px;margin-right:8px;"></span>Landfill<br>
+</div>
+<hr style="margin:8px 0">
+<div><b>Stops per Route</b></div>
+<div style='margin-left:10px;'>• Route <b>RO_ZRHIN</b>: 18 stops</div><div style='margin-left:10px;'>• Route <b>RO_ZAJAM</b>: 14 stops</div><div style='margin-left:10px;'>• Route <b>RO_ZWHIN</b>: 14 stops</div>
+</div>
+    
+<h2 style="
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 24px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin: 0;
+">
+    NDO Route Map
+</h2>
+</body>
+<script>
+    
+    map = this;
+    
+            var map_67cf0721ac232efd3fa57f11da37effa = L.map(
+                "map_67cf0721ac232efd3fa57f11da37effa",
+                {
+                    center: [43.70595, -79.3579735],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_67cf0721ac232efd3fa57f11da37effa);
+
+            
+
+        
+    
+            var tile_layer_714e0f9fbbbaa9f7835c683f8339326e = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_714e0f9fbbbaa9f7835c683f8339326e.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var tile_layer_53125920ca17b57ed5457916f44cdcb6 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "OpenStreetMap",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_53125920ca17b57ed5457916f44cdcb6.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var tile_layer_25bd4fc7898564a00ac172b5ecc32d3e = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "\u00a9OpenStreetMap, \u00a9CartoDB",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_25bd4fc7898564a00ac172b5ecc32d3e.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var tile_layer_87e550948dfc9ac70b92c480451ffaaf = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "CartoDB Positron",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_87e550948dfc9ac70b92c480451ffaaf.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var tile_layer_ca34857ae27b35dc7372b2d9a966af25 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ca34857ae27b35dc7372b2d9a966af25.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var tile_layer_8b1eb8a8792d6c9874c0be774003af00 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=p\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8b1eb8a8792d6c9874c0be774003af00.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var tile_layer_0ceefd537c8888109a79f8fece7f0bcc = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0ceefd537c8888109a79f8fece7f0bcc.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var feature_group_bf06cdf28544a20901298d4669e32d56 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_90d572abd0e55f8950d28405d8581c4d = L.polyline(
+                [[43.70595, -79.3579735], [43.622147, -79.54178]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_90d572abd0e55f8950d28405d8581c4d.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 1 ➝ 2<br>Esandar Drive Hauling ➝ METALOGICS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_cc45fded60438149413a6143244e5ab2 = new L.RegularPolygonMarker(
+                [43.6640485, -79.44987675],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 147.84187790880395,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_6c7b972aa04c1ed4c0a55a4ac0d28159 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a3a78acb507e5bbdaf1582e08ce93e1c = $(`<div id="html_a3a78acb507e5bbdaf1582e08ce93e1c" style="width: 100.0%; height: 100.0%;">Seq 1 ➝ 2</div>`)[0];
+                popup_6c7b972aa04c1ed4c0a55a4ac0d28159.setContent(html_a3a78acb507e5bbdaf1582e08ce93e1c);
+            
+        
+
+        regular_polygon_marker_cc45fded60438149413a6143244e5ab2.bindPopup(popup_6c7b972aa04c1ed4c0a55a4ac0d28159)
+        ;
+
+        
+    
+    
+            var poly_line_4fdc8c322d80e4081c9fb9a500c2ac8e = L.polyline(
+                [[43.622147, -79.54178], [43.629063, -79.52552]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_4fdc8c322d80e4081c9fb9a500c2ac8e.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 2 ➝ 3<br>METALOGICS ➝ KOREX CANADA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_44d59ef48141828879090a9df25c7aa6 = new L.RegularPolygonMarker(
+                [43.625605, -79.53365],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -30.44386866627451,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_98966a8d102af3b2b2cfddc4accf8b90 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_beb5305774be483f080238557f942c85 = $(`<div id="html_beb5305774be483f080238557f942c85" style="width: 100.0%; height: 100.0%;">Seq 2 ➝ 3</div>`)[0];
+                popup_98966a8d102af3b2b2cfddc4accf8b90.setContent(html_beb5305774be483f080238557f942c85);
+            
+        
+
+        regular_polygon_marker_44d59ef48141828879090a9df25c7aa6.bindPopup(popup_98966a8d102af3b2b2cfddc4accf8b90)
+        ;
+
+        
+    
+    
+            var poly_line_1adf4a22ff22b1d29a537130fe3fb838 = L.polyline(
+                [[43.629063, -79.52552], [43.606564, -79.50782]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_1adf4a22ff22b1d29a537130fe3fb838.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 3 ➝ 4<br>KOREX CANADA ➝ WM NEW TORONTO TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_3a237bf6621f326a542d447f7acc3005 = new L.RegularPolygonMarker(
+                [43.6178135, -79.51667],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 60.330716736431214,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_39d7f939387804557a8185e0d4507347 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dee81943863d2180548736657952c3b9 = $(`<div id="html_dee81943863d2180548736657952c3b9" style="width: 100.0%; height: 100.0%;">Seq 3 ➝ 4</div>`)[0];
+                popup_39d7f939387804557a8185e0d4507347.setContent(html_dee81943863d2180548736657952c3b9);
+            
+        
+
+        regular_polygon_marker_3a237bf6621f326a542d447f7acc3005.bindPopup(popup_39d7f939387804557a8185e0d4507347)
+        ;
+
+        
+    
+    
+            var poly_line_787126cbfa769bd3817d04034b6e378f = L.polyline(
+                [[43.606564, -79.50782], [43.598934, -79.54406]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_787126cbfa769bd3817d04034b6e378f.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 4 ➝ 5<br>WM NEW TORONTO TS ➝ GREEN EVENT NINJAS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_8b204966aed38192c6af8deea6c58a65 = new L.RegularPolygonMarker(
+                [43.602749, -79.52593999999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 163.80089082364805,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_be8a4837a117a56bfca779a47344ccce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b26d5bd50e5b24366376617dd87f70cd = $(`<div id="html_b26d5bd50e5b24366376617dd87f70cd" style="width: 100.0%; height: 100.0%;">Seq 4 ➝ 5</div>`)[0];
+                popup_be8a4837a117a56bfca779a47344ccce.setContent(html_b26d5bd50e5b24366376617dd87f70cd);
+            
+        
+
+        regular_polygon_marker_8b204966aed38192c6af8deea6c58a65.bindPopup(popup_be8a4837a117a56bfca779a47344ccce)
+        ;
+
+        
+    
+    
+            var poly_line_629d69b0ae3301e9f0bb7987f4a4a14d = L.polyline(
+                [[43.598934, -79.54406], [43.606564, -79.50782]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_629d69b0ae3301e9f0bb7987f4a4a14d.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 5 ➝ 6<br>GREEN EVENT NINJAS ➝ WM NEW TORONTO TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_bb17a2bb8b4a64dd4fe5af7bc5ffc953 = new L.RegularPolygonMarker(
+                [43.602749, -79.52593999999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -16.224102248239944,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_82ae2f29282a65e4c7bceaa1141e21cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f055734ad323aceb5d77286f7cdec77 = $(`<div id="html_9f055734ad323aceb5d77286f7cdec77" style="width: 100.0%; height: 100.0%;">Seq 5 ➝ 6</div>`)[0];
+                popup_82ae2f29282a65e4c7bceaa1141e21cd.setContent(html_9f055734ad323aceb5d77286f7cdec77);
+            
+        
+
+        regular_polygon_marker_bb17a2bb8b4a64dd4fe5af7bc5ffc953.bindPopup(popup_82ae2f29282a65e4c7bceaa1141e21cd)
+        ;
+
+        
+    
+    
+            var poly_line_b14cb10da27f8e136d32ccc4303272c3 = L.polyline(
+                [[43.606564, -79.50782], [43.70595, -79.3579735]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_b14cb10da27f8e136d32ccc4303272c3.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 6 ➝ 7<br>WM NEW TORONTO TS ➝ Esandar Drive Hauling
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_e24ee122bfa593675f9eb018a0c65638 = new L.RegularPolygonMarker(
+                [43.656257, -79.43289675],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -42.56425180709982,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_36ff13b6417c22708ef6674c9ceeb002 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03a2461b675ae41340a41c2144009bca = $(`<div id="html_03a2461b675ae41340a41c2144009bca" style="width: 100.0%; height: 100.0%;">Seq 6 ➝ 7</div>`)[0];
+                popup_36ff13b6417c22708ef6674c9ceeb002.setContent(html_03a2461b675ae41340a41c2144009bca);
+            
+        
+
+        regular_polygon_marker_e24ee122bfa593675f9eb018a0c65638.bindPopup(popup_36ff13b6417c22708ef6674c9ceeb002)
+        ;
+
+        
+    
+    
+            var poly_line_3371dceeb814dbc1c42136808304736a = L.polyline(
+                [[43.70595, -79.3579735], [43.756733, -79.24636]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_3371dceeb814dbc1c42136808304736a.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 7 ➝ 8<br>Esandar Drive Hauling ➝ SCARBOROUGH HOSPITAL - GENERAL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_fef8fe4ef2d163d717ad20ae1d08241d = new L.RegularPolygonMarker(
+                [43.7313415, -79.30216675],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -32.235793170500585,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_ca23c5c39633bef30270215fc7af3980 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2276afc39dde7710033e28090fb084fa = $(`<div id="html_2276afc39dde7710033e28090fb084fa" style="width: 100.0%; height: 100.0%;">Seq 7 ➝ 8</div>`)[0];
+                popup_ca23c5c39633bef30270215fc7af3980.setContent(html_2276afc39dde7710033e28090fb084fa);
+            
+        
+
+        regular_polygon_marker_fef8fe4ef2d163d717ad20ae1d08241d.bindPopup(popup_ca23c5c39633bef30270215fc7af3980)
+        ;
+
+        
+    
+    
+            var poly_line_cc7a05e2503573d48056027470910db3 = L.polyline(
+                [[43.756733, -79.24636], [43.644623, -79.336624]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_cc7a05e2503573d48056027470910db3.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 8 ➝ 9<br>SCARBOROUGH HOSPITAL - GENERAL ➝ GFL UNWIN TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_34b4b7392f30188f631ed4958f835249 = new L.RegularPolygonMarker(
+                [43.700677999999996, -79.291492],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 120.23408799530011,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_a436253ccaf7c74af732d73f4cc57441 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df092fb0856a49895b1498ec87ec1044 = $(`<div id="html_df092fb0856a49895b1498ec87ec1044" style="width: 100.0%; height: 100.0%;">Seq 8 ➝ 9</div>`)[0];
+                popup_a436253ccaf7c74af732d73f4cc57441.setContent(html_df092fb0856a49895b1498ec87ec1044);
+            
+        
+
+        regular_polygon_marker_34b4b7392f30188f631ed4958f835249.bindPopup(popup_a436253ccaf7c74af732d73f4cc57441)
+        ;
+
+        
+    
+    
+            var poly_line_f8eead4c80cec29ab297c0899aee4c50 = L.polyline(
+                [[43.644623, -79.336624], [43.756733, -79.24636]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_f8eead4c80cec29ab297c0899aee4c50.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 9 ➝ 10<br>GFL UNWIN TS ➝ SCARBOROUGH HOSPITAL - GENERAL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_0ed3330ba15a3f4162e036fe55c7d42b = new L.RegularPolygonMarker(
+                [43.700677999999996, -79.291492],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -59.828274623453694,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_17636fb3d3c60c3ac293030096382385 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_04058a10bfd8dfcac172112860b610d2 = $(`<div id="html_04058a10bfd8dfcac172112860b610d2" style="width: 100.0%; height: 100.0%;">Seq 9 ➝ 10</div>`)[0];
+                popup_17636fb3d3c60c3ac293030096382385.setContent(html_04058a10bfd8dfcac172112860b610d2);
+            
+        
+
+        regular_polygon_marker_0ed3330ba15a3f4162e036fe55c7d42b.bindPopup(popup_17636fb3d3c60c3ac293030096382385)
+        ;
+
+        
+    
+    
+            var poly_line_a7ac309ffa5e48c47a967c78d30c7ae6 = L.polyline(
+                [[43.756733, -79.24636], [43.73015, -79.28418]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_a7ac309ffa5e48c47a967c78d30c7ae6.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 10 ➝ 11<br>SCARBOROUGH HOSPITAL - GENERAL ➝ VALUE VILLAGE 2158
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_976c45e7e31d25a73a33ab7bd70a1446 = new L.RegularPolygonMarker(
+                [43.7434415, -79.26527],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 135.7993492263155,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_282936418f147b22c0591ff7ecbfc06f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f39f2685f0a978af6c3d9b9c06f693b4 = $(`<div id="html_f39f2685f0a978af6c3d9b9c06f693b4" style="width: 100.0%; height: 100.0%;">Seq 10 ➝ 11</div>`)[0];
+                popup_282936418f147b22c0591ff7ecbfc06f.setContent(html_f39f2685f0a978af6c3d9b9c06f693b4);
+            
+        
+
+        regular_polygon_marker_976c45e7e31d25a73a33ab7bd70a1446.bindPopup(popup_282936418f147b22c0591ff7ecbfc06f)
+        ;
+
+        
+    
+    
+            var poly_line_57caa82b0bbe5d091d8bb5f5e7a0dc0e = L.polyline(
+                [[43.73015, -79.28418], [43.706528, -79.35788]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_57caa82b0bbe5d091d8bb5f5e7a0dc0e.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 11 ➝ 12<br>VALUE VILLAGE 2158 ➝ WM ESANDAR TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_43a3ad079d4fa28e43bf9b9c8babf6ef = new L.RegularPolygonMarker(
+                [43.718339, -79.32103000000001],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 156.10965738597454,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_694f437b9924f3db825f09fae4565d87 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e540e9a73f3079ecc416060286ef2f95 = $(`<div id="html_e540e9a73f3079ecc416060286ef2f95" style="width: 100.0%; height: 100.0%;">Seq 11 ➝ 12</div>`)[0];
+                popup_694f437b9924f3db825f09fae4565d87.setContent(html_e540e9a73f3079ecc416060286ef2f95);
+            
+        
+
+        regular_polygon_marker_43a3ad079d4fa28e43bf9b9c8babf6ef.bindPopup(popup_694f437b9924f3db825f09fae4565d87)
+        ;
+
+        
+    
+    
+            var poly_line_b9b84a5805668b782227c3a57cc568d4 = L.polyline(
+                [[43.706528, -79.35788], [43.73015, -79.28418]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_b9b84a5805668b782227c3a57cc568d4.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 12 ➝ 13<br>WM ESANDAR TS ➝ VALUE VILLAGE 2158
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_ce4def1dc993d605ffe56f74832b7b70 = new L.RegularPolygonMarker(
+                [43.718339, -79.32103000000001],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -23.941277704369554,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_54e55912651b3c60adb0e3812fe15763 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9832865793658e9dcc9d812df70ffc25 = $(`<div id="html_9832865793658e9dcc9d812df70ffc25" style="width: 100.0%; height: 100.0%;">Seq 12 ➝ 13</div>`)[0];
+                popup_54e55912651b3c60adb0e3812fe15763.setContent(html_9832865793658e9dcc9d812df70ffc25);
+            
+        
+
+        regular_polygon_marker_ce4def1dc993d605ffe56f74832b7b70.bindPopup(popup_54e55912651b3c60adb0e3812fe15763)
+        ;
+
+        
+    
+    
+            var poly_line_a96ab3e86cd1d8d1484f94354a4efe7e = L.polyline(
+                [[43.73015, -79.28418], [43.74206, -79.22367]],
+                {"bubblingMouseEvents": true, "color": "#e0b639", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e0b639", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+            poly_line_a96ab3e86cd1d8d1484f94354a4efe7e.bindTooltip(
+                `<div>
+                     Route RO_ZAJAM: Seq 13 ➝ 14<br>VALUE VILLAGE 2158 ➝ WAL-MART 1117 (L)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_3e2452f7a77c4aa7d75b7740d8393aee = new L.RegularPolygonMarker(
+                [43.736105, -79.25392500000001],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -15.259269459876975,
+}
+            ).addTo(feature_group_bf06cdf28544a20901298d4669e32d56);
+        
+    
+        var popup_42d6192246b316b1bc9a60f83031c682 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_321f32f42c2638706055f45a40296877 = $(`<div id="html_321f32f42c2638706055f45a40296877" style="width: 100.0%; height: 100.0%;">Seq 13 ➝ 14</div>`)[0];
+                popup_42d6192246b316b1bc9a60f83031c682.setContent(html_321f32f42c2638706055f45a40296877);
+            
+        
+
+        regular_polygon_marker_3e2452f7a77c4aa7d75b7740d8393aee.bindPopup(popup_42d6192246b316b1bc9a60f83031c682)
+        ;
+
+        
+    
+    
+            feature_group_bf06cdf28544a20901298d4669e32d56.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var feature_group_634910e82ac9f9822f76aff526ee6ff2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_05555c1f5a793e92441e080af973e74a = L.polyline(
+                [[43.70595, -79.3579735], [43.606564, -79.50782]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_05555c1f5a793e92441e080af973e74a.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 1 ➝ 2<br>Esandar Drive Hauling ➝ WM NEW TORONTO TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_65ae5b94a5a98674483d87b0bc41f2ac = new L.RegularPolygonMarker(
+                [43.656257, -79.43289675],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 137.53919183503638,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_790af4346899a60feaa1adc85cd19e7f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_35b20d8cf2c17235c113b3bfd7b4e7bd = $(`<div id="html_35b20d8cf2c17235c113b3bfd7b4e7bd" style="width: 100.0%; height: 100.0%;">Seq 1 ➝ 2</div>`)[0];
+                popup_790af4346899a60feaa1adc85cd19e7f.setContent(html_35b20d8cf2c17235c113b3bfd7b4e7bd);
+            
+        
+
+        regular_polygon_marker_65ae5b94a5a98674483d87b0bc41f2ac.bindPopup(popup_790af4346899a60feaa1adc85cd19e7f)
+        ;
+
+        
+    
+    
+            var poly_line_847045dde5745d0cb1bba9b01032ef13 = L.polyline(
+                [[43.606564, -79.50782], [43.60662, -79.50755]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_847045dde5745d0cb1bba9b01032ef13.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 2 ➝ 3<br>WM NEW TORONTO TS ➝ WM NEW TORONTO HOUSE ACCT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_f64fb005c50de2598b70e62fdef6c2d4 = new L.RegularPolygonMarker(
+                [43.606592, -79.507685],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -15.983803022526331,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_3343ac149afeb0c87c87861f8b3273ac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8779e66681c352ac016337ee77b85239 = $(`<div id="html_8779e66681c352ac016337ee77b85239" style="width: 100.0%; height: 100.0%;">Seq 2 ➝ 3</div>`)[0];
+                popup_3343ac149afeb0c87c87861f8b3273ac.setContent(html_8779e66681c352ac016337ee77b85239);
+            
+        
+
+        regular_polygon_marker_f64fb005c50de2598b70e62fdef6c2d4.bindPopup(popup_3343ac149afeb0c87c87861f8b3273ac)
+        ;
+
+        
+    
+    
+            var poly_line_bf53e64ec920a271c3eed0deb8ac90af = L.polyline(
+                [[43.60662, -79.50755], [43.63465, -79.432236]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_bf53e64ec920a271c3eed0deb8ac90af.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 3 ➝ 4<br>WM NEW TORONTO HOUSE ACCT ➝ E.W. BICKLE CENTRE
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_c192c796d7e90dc7b70223058192b50e = new L.RegularPolygonMarker(
+                [43.620635, -79.469893],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -27.234053987065806,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_b9b14e25dec6f2ab8b9730411cc26272 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0d5f7bd11d17d0ce1e1265c75345910c = $(`<div id="html_0d5f7bd11d17d0ce1e1265c75345910c" style="width: 100.0%; height: 100.0%;">Seq 3 ➝ 4</div>`)[0];
+                popup_b9b14e25dec6f2ab8b9730411cc26272.setContent(html_0d5f7bd11d17d0ce1e1265c75345910c);
+            
+        
+
+        regular_polygon_marker_c192c796d7e90dc7b70223058192b50e.bindPopup(popup_b9b14e25dec6f2ab8b9730411cc26272)
+        ;
+
+        
+    
+    
+            var poly_line_2e2504d7f6f9abea6784fc94824560bb = L.polyline(
+                [[43.63465, -79.432236], [43.606564, -79.50782]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_2e2504d7f6f9abea6784fc94824560bb.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 4 ➝ 5<br>E.W. BICKLE CENTRE ➝ WM NEW TORONTO TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_de2f3f4eb90c33daaf7bb2c5dd28d3b6 = new L.RegularPolygonMarker(
+                [43.620607, -79.470028],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 152.85486523620983,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_e6f10bc0871d4991e22355af3de58e32 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_727b62c5783fc57da61fa36a59afaaab = $(`<div id="html_727b62c5783fc57da61fa36a59afaaab" style="width: 100.0%; height: 100.0%;">Seq 4 ➝ 5</div>`)[0];
+                popup_e6f10bc0871d4991e22355af3de58e32.setContent(html_727b62c5783fc57da61fa36a59afaaab);
+            
+        
+
+        regular_polygon_marker_de2f3f4eb90c33daaf7bb2c5dd28d3b6.bindPopup(popup_e6f10bc0871d4991e22355af3de58e32)
+        ;
+
+        
+    
+    
+            var poly_line_7a735be69061bd8917c273b7a6d0bdec = L.polyline(
+                [[43.606564, -79.50782], [43.63465, -79.432236]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_7a735be69061bd8917c273b7a6d0bdec.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 5 ➝ 6<br>WM NEW TORONTO TS ➝ E.W. BICKLE CENTRE
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_d31d90abf0dd297df4bdc382e4128d01 = new L.RegularPolygonMarker(
+                [43.620607, -79.470028],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -27.1972786558203,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_91476629cfb6fdbb44c7f45ee223a277 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_12eb780b6f3afb9129464d6890fc6b89 = $(`<div id="html_12eb780b6f3afb9129464d6890fc6b89" style="width: 100.0%; height: 100.0%;">Seq 5 ➝ 6</div>`)[0];
+                popup_91476629cfb6fdbb44c7f45ee223a277.setContent(html_12eb780b6f3afb9129464d6890fc6b89);
+            
+        
+
+        regular_polygon_marker_d31d90abf0dd297df4bdc382e4128d01.bindPopup(popup_91476629cfb6fdbb44c7f45ee223a277)
+        ;
+
+        
+    
+    
+            var poly_line_6f5bd6e92d7e9f716aa35021d6a6c9f0 = L.polyline(
+                [[43.63465, -79.432236], [43.66104, -79.39208]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_6f5bd6e92d7e9f716aa35021d6a6c9f0.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 6 ➝ 7<br>E.W. BICKLE CENTRE ➝ UOT SGC-MCMURRICH BUILDING
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_7447c5bbc3f281b20bc59dab871b99c5 = new L.RegularPolygonMarker(
+                [43.647845000000004, -79.412158],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -42.260337122268936,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_e689041d2c1a0a962e80588089fe8a4a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1bc8fed7629db986b24ba1146b9b8a8e = $(`<div id="html_1bc8fed7629db986b24ba1146b9b8a8e" style="width: 100.0%; height: 100.0%;">Seq 6 ➝ 7</div>`)[0];
+                popup_e689041d2c1a0a962e80588089fe8a4a.setContent(html_1bc8fed7629db986b24ba1146b9b8a8e);
+            
+        
+
+        regular_polygon_marker_7447c5bbc3f281b20bc59dab871b99c5.bindPopup(popup_e689041d2c1a0a962e80588089fe8a4a)
+        ;
+
+        
+    
+    
+            var poly_line_fff62a9cb6e68350660ff21f6bc05596 = L.polyline(
+                [[43.66104, -79.39208], [43.706528, -79.35788]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_fff62a9cb6e68350660ff21f6bc05596.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 7 ➝ 8<br>UOT SGC-MCMURRICH BUILDING ➝ WM ESANDAR TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_2b2b1667e271be97303b7257cb5a95a6 = new L.RegularPolygonMarker(
+                [43.683784, -79.37498],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -61.478556019331904,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_cb4dbbf06f5aac0fd003f5fa4477b681 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_319cff18858cf9f8b17063290d18670b = $(`<div id="html_319cff18858cf9f8b17063290d18670b" style="width: 100.0%; height: 100.0%;">Seq 7 ➝ 8</div>`)[0];
+                popup_cb4dbbf06f5aac0fd003f5fa4477b681.setContent(html_319cff18858cf9f8b17063290d18670b);
+            
+        
+
+        regular_polygon_marker_2b2b1667e271be97303b7257cb5a95a6.bindPopup(popup_cb4dbbf06f5aac0fd003f5fa4477b681)
+        ;
+
+        
+    
+    
+            var poly_line_fc77a5214096b114bb67e99e332d4773 = L.polyline(
+                [[43.706528, -79.35788], [43.66104, -79.39208]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_fc77a5214096b114bb67e99e332d4773.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 8 ➝ 9<br>WM ESANDAR TS ➝ UOT SGC-MCMURRICH BUILDING
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_c37853b5f274eddeccde77c789dea2a0 = new L.RegularPolygonMarker(
+                [43.683784, -79.37498],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 118.54506516253835,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_5745aeeca5ecb5c11892d8811636d2f0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5a13708842ff5e72e558f3779590882d = $(`<div id="html_5a13708842ff5e72e558f3779590882d" style="width: 100.0%; height: 100.0%;">Seq 8 ➝ 9</div>`)[0];
+                popup_5745aeeca5ecb5c11892d8811636d2f0.setContent(html_5a13708842ff5e72e558f3779590882d);
+            
+        
+
+        regular_polygon_marker_c37853b5f274eddeccde77c789dea2a0.bindPopup(popup_5745aeeca5ecb5c11892d8811636d2f0)
+        ;
+
+        
+    
+    
+            var poly_line_fcd6062dbc546a942b02c1ec8b636af5 = L.polyline(
+                [[43.66104, -79.39208], [43.70641, -79.358864]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_fcd6062dbc546a942b02c1ec8b636af5.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 9 ➝ 10<br>UOT SGC-MCMURRICH BUILDING ➝ Esandar Hauling Storage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_e07ba26272037ac66716f23d7856f72a = new L.RegularPolygonMarker(
+                [43.683724999999995, -79.375472],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -62.11303203720871,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_a458eec670a90fc5b92bd2949887a349 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b50f772ac9c0c2031b8abed79e67957a = $(`<div id="html_b50f772ac9c0c2031b8abed79e67957a" style="width: 100.0%; height: 100.0%;">Seq 9 ➝ 10</div>`)[0];
+                popup_a458eec670a90fc5b92bd2949887a349.setContent(html_b50f772ac9c0c2031b8abed79e67957a);
+            
+        
+
+        regular_polygon_marker_e07ba26272037ac66716f23d7856f72a.bindPopup(popup_a458eec670a90fc5b92bd2949887a349)
+        ;
+
+        
+    
+    
+            var poly_line_3e3c993cf04548024a239c9ecd2a2835 = L.polyline(
+                [[43.70641, -79.358864], [43.70595, -79.3579735]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_3e3c993cf04548024a239c9ecd2a2835.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 10 ➝ 11<br>Esandar Hauling Storage ➝ Esandar Drive Hauling
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_0d06db34f3518e57d93d5e5df8d12c9b = new L.RegularPolygonMarker(
+                [43.70618, -79.35841875],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 35.5484872595481,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_6af13c73e79bdf25f080521554bf06a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f94ae36aac97e60b941d693012ee27e1 = $(`<div id="html_f94ae36aac97e60b941d693012ee27e1" style="width: 100.0%; height: 100.0%;">Seq 10 ➝ 11</div>`)[0];
+                popup_6af13c73e79bdf25f080521554bf06a6.setContent(html_f94ae36aac97e60b941d693012ee27e1);
+            
+        
+
+        regular_polygon_marker_0d06db34f3518e57d93d5e5df8d12c9b.bindPopup(popup_6af13c73e79bdf25f080521554bf06a6)
+        ;
+
+        
+    
+    
+            var poly_line_5b4d179dfb6d542234b821cad759e997 = L.polyline(
+                [[43.70595, -79.3579735], [43.70916, -79.48074]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_5b4d179dfb6d542234b821cad759e997.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 11 ➝ 12<br>Esandar Drive Hauling ➝ VECTOR97-1442 LAWRENCE AVE W APTS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_4a43bd271f44247f21a6a7d70143c0eb = new L.RegularPolygonMarker(
+                [43.707555, -79.41935674999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 182.11396007290625,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_4c562685c28166954b5abba390212915 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4016ecde26ed975d57020589327d03d = $(`<div id="html_d4016ecde26ed975d57020589327d03d" style="width: 100.0%; height: 100.0%;">Seq 11 ➝ 12</div>`)[0];
+                popup_4c562685c28166954b5abba390212915.setContent(html_d4016ecde26ed975d57020589327d03d);
+            
+        
+
+        regular_polygon_marker_4a43bd271f44247f21a6a7d70143c0eb.bindPopup(popup_4c562685c28166954b5abba390212915)
+        ;
+
+        
+    
+    
+            var poly_line_1acf6d66772f4c5d364c135f8388013b = L.polyline(
+                [[43.70916, -79.48074], [43.701523, -79.468834]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_1acf6d66772f4c5d364c135f8388013b.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 12 ➝ 13<br>VECTOR97-1442 LAWRENCE AVE W APTS ➝ GFL INGRAM
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_684e9d0add62c5950724f02978cd5e54 = new L.RegularPolygonMarker(
+                [43.7053415, -79.47478699999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 41.57896079068337,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_aaff3c941e96d367f3ce6f5d6ba04ad8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6521e6115f97f004bd98c48765fce75 = $(`<div id="html_e6521e6115f97f004bd98c48765fce75" style="width: 100.0%; height: 100.0%;">Seq 12 ➝ 13</div>`)[0];
+                popup_aaff3c941e96d367f3ce6f5d6ba04ad8.setContent(html_e6521e6115f97f004bd98c48765fce75);
+            
+        
+
+        regular_polygon_marker_684e9d0add62c5950724f02978cd5e54.bindPopup(popup_aaff3c941e96d367f3ce6f5d6ba04ad8)
+        ;
+
+        
+    
+    
+            var poly_line_9cedb514f30ffa7e0934bed8beca40e4 = L.polyline(
+                [[43.701523, -79.468834], [43.70916, -79.48074]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_9cedb514f30ffa7e0934bed8beca40e4.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 13 ➝ 14<br>GFL INGRAM ➝ VECTOR97-1442 LAWRENCE AVE W APTS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_e620ea3d3335946a995909a5a5479b36 = new L.RegularPolygonMarker(
+                [43.7053415, -79.47478699999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 221.58718723913444,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_afc97f3056d22a0725731f4b547edeb0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51c163c7d0ce83439e338a89c6f6f779 = $(`<div id="html_51c163c7d0ce83439e338a89c6f6f779" style="width: 100.0%; height: 100.0%;">Seq 13 ➝ 14</div>`)[0];
+                popup_afc97f3056d22a0725731f4b547edeb0.setContent(html_51c163c7d0ce83439e338a89c6f6f779);
+            
+        
+
+        regular_polygon_marker_e620ea3d3335946a995909a5a5479b36.bindPopup(popup_afc97f3056d22a0725731f4b547edeb0)
+        ;
+
+        
+    
+    
+            var poly_line_cce511a8b421a2ee6092fdc28252c18d = L.polyline(
+                [[43.70916, -79.48074], [43.70891, -79.47919]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_cce511a8b421a2ee6092fdc28252c18d.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 14 ➝ 15<br>VECTOR97-1442 LAWRENCE AVE W APTS ➝ VECTOR97-1440 LAWRENCE AVE W APTS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_9fe2c2cdb07ed964e9e8980095d49bdc = new L.RegularPolygonMarker(
+                [43.709035, -79.47996499999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 12.577749426209948,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_3426765051ef6486c40286a5e5e14539 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5ee512a213ac89f4512341081bc69a6d = $(`<div id="html_5ee512a213ac89f4512341081bc69a6d" style="width: 100.0%; height: 100.0%;">Seq 14 ➝ 15</div>`)[0];
+                popup_3426765051ef6486c40286a5e5e14539.setContent(html_5ee512a213ac89f4512341081bc69a6d);
+            
+        
+
+        regular_polygon_marker_9fe2c2cdb07ed964e9e8980095d49bdc.bindPopup(popup_3426765051ef6486c40286a5e5e14539)
+        ;
+
+        
+    
+    
+            var poly_line_c12e78a4454064dcef68b4e9a3985dab = L.polyline(
+                [[43.70891, -79.47919], [43.701523, -79.468834]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_c12e78a4454064dcef68b4e9a3985dab.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 15 ➝ 16<br>VECTOR97-1440 LAWRENCE AVE W APTS ➝ GFL INGRAM
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_f4885a7e3b949518fd4bccd4d48b1cfa = new L.RegularPolygonMarker(
+                [43.705216500000006, -79.474012],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 44.61353012849219,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_ca788605c08dae825af990d24081f1c6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_934da4896ca21e64d1fe16f0bb554a15 = $(`<div id="html_934da4896ca21e64d1fe16f0bb554a15" style="width: 100.0%; height: 100.0%;">Seq 15 ➝ 16</div>`)[0];
+                popup_ca788605c08dae825af990d24081f1c6.setContent(html_934da4896ca21e64d1fe16f0bb554a15);
+            
+        
+
+        regular_polygon_marker_f4885a7e3b949518fd4bccd4d48b1cfa.bindPopup(popup_ca788605c08dae825af990d24081f1c6)
+        ;
+
+        
+    
+    
+            var poly_line_0fe3960fe5acd05680f6ef535ebbb971 = L.polyline(
+                [[43.701523, -79.468834], [43.70891, -79.47919]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_0fe3960fe5acd05680f6ef535ebbb971.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 16 ➝ 17<br>GFL INGRAM ➝ VECTOR97-1440 LAWRENCE AVE W APTS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_d3c6ea38ec92cf13bdc23fde9a143a9f = new L.RegularPolygonMarker(
+                [43.705216500000006, -79.474012],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 224.6206855884114,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_d861c915ba3245d05a46819626fa8c21 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f3d2f3ba529f79046a6e636f29d32932 = $(`<div id="html_f3d2f3ba529f79046a6e636f29d32932" style="width: 100.0%; height: 100.0%;">Seq 16 ➝ 17</div>`)[0];
+                popup_d861c915ba3245d05a46819626fa8c21.setContent(html_f3d2f3ba529f79046a6e636f29d32932);
+            
+        
+
+        regular_polygon_marker_d3c6ea38ec92cf13bdc23fde9a143a9f.bindPopup(popup_d861c915ba3245d05a46819626fa8c21)
+        ;
+
+        
+    
+    
+            var poly_line_2bf7ccff1caca12b46e23204132f1fee = L.polyline(
+                [[43.70891, -79.47919], [43.60662, -79.50755]],
+                {"bubblingMouseEvents": true, "color": "#4a9c2d", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#4a9c2d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+            poly_line_2bf7ccff1caca12b46e23204132f1fee.bindTooltip(
+                `<div>
+                     Route RO_ZRHIN: Seq 17 ➝ 18<br>VECTOR97-1440 LAWRENCE AVE W APTS ➝ WM NEW TORONTO HOUSE ACCT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_d29f31a66d232ee522fe908e4a97a5b9 = new L.RegularPolygonMarker(
+                [43.657765, -79.49337],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 101.35191956384085,
+}
+            ).addTo(feature_group_634910e82ac9f9822f76aff526ee6ff2);
+        
+    
+        var popup_48f6ffef90a6a396e2893c1733088ad5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65ea14f23e5a1db84758eba7b3b60c88 = $(`<div id="html_65ea14f23e5a1db84758eba7b3b60c88" style="width: 100.0%; height: 100.0%;">Seq 17 ➝ 18</div>`)[0];
+                popup_48f6ffef90a6a396e2893c1733088ad5.setContent(html_65ea14f23e5a1db84758eba7b3b60c88);
+            
+        
+
+        regular_polygon_marker_d29f31a66d232ee522fe908e4a97a5b9.bindPopup(popup_48f6ffef90a6a396e2893c1733088ad5)
+        ;
+
+        
+    
+    
+            feature_group_634910e82ac9f9822f76aff526ee6ff2.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var feature_group_04a8b237c0eec8e92f15a65f7344a2fc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_3fb94efe97e3d76d2b4fc6152739d043 = L.polyline(
+                [[43.70595, -79.3579735], [43.70641, -79.358864]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_3fb94efe97e3d76d2b4fc6152739d043.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 1 ➝ 2<br>Esandar Drive Hauling ➝ Esandar Hauling Storage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_2a91bb103a2bf043c73415cea07905db = new L.RegularPolygonMarker(
+                [43.70618, -79.35841875],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 215.54910255953348,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_2bcbb7ac93d760ee7beddaa444f0d86d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f61c836b818e7f27e81784fa268cf4e0 = $(`<div id="html_f61c836b818e7f27e81784fa268cf4e0" style="width: 100.0%; height: 100.0%;">Seq 1 ➝ 2</div>`)[0];
+                popup_2bcbb7ac93d760ee7beddaa444f0d86d.setContent(html_f61c836b818e7f27e81784fa268cf4e0);
+            
+        
+
+        regular_polygon_marker_2a91bb103a2bf043c73415cea07905db.bindPopup(popup_2bcbb7ac93d760ee7beddaa444f0d86d)
+        ;
+
+        
+    
+    
+            var poly_line_65541244181eef419420be9016cba2ba = L.polyline(
+                [[43.70641, -79.358864], [43.631344, -79.414696]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_65541244181eef419420be9016cba2ba.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 2 ➝ 3<br>Esandar Hauling Storage ➝ LIVE NATION
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_41df78093bf771bafc3035279b0160e5 = new L.RegularPolygonMarker(
+                [43.668876999999995, -79.38678],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 118.29961410960337,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_b7d09abd24b858cb56102773336afb80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccf2593bc900cd8cde3046a50bd93879 = $(`<div id="html_ccf2593bc900cd8cde3046a50bd93879" style="width: 100.0%; height: 100.0%;">Seq 2 ➝ 3</div>`)[0];
+                popup_b7d09abd24b858cb56102773336afb80.setContent(html_ccf2593bc900cd8cde3046a50bd93879);
+            
+        
+
+        regular_polygon_marker_41df78093bf771bafc3035279b0160e5.bindPopup(popup_b7d09abd24b858cb56102773336afb80)
+        ;
+
+        
+    
+    
+            var poly_line_82948146b73a0652879f5493653fdc01 = L.polyline(
+                [[43.631344, -79.414696], [43.606564, -79.50782]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_82948146b73a0652879f5493653fdc01.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 3 ➝ 4<br>LIVE NATION ➝ WM NEW TORONTO TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_09b6b2878298332c5c9b0122126459bb = new L.RegularPolygonMarker(
+                [43.618954, -79.461258],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 159.85043262047395,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_310daf4fb6e3e7facefe0727629f9a94 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a728311d138b76eee5eb2e3409f1a7b = $(`<div id="html_8a728311d138b76eee5eb2e3409f1a7b" style="width: 100.0%; height: 100.0%;">Seq 3 ➝ 4</div>`)[0];
+                popup_310daf4fb6e3e7facefe0727629f9a94.setContent(html_8a728311d138b76eee5eb2e3409f1a7b);
+            
+        
+
+        regular_polygon_marker_09b6b2878298332c5c9b0122126459bb.bindPopup(popup_310daf4fb6e3e7facefe0727629f9a94)
+        ;
+
+        
+    
+    
+            var poly_line_819e73dcf46cfbc1cf28ec8c3db4abb8 = L.polyline(
+                [[43.606564, -79.50782], [43.631344, -79.414696]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_819e73dcf46cfbc1cf28ec8c3db4abb8.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 4 ➝ 5<br>WM NEW TORONTO TS ➝ LIVE NATION
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_82020dd40a28ad0480938d38079c99a6 = new L.RegularPolygonMarker(
+                [43.618954, -79.461258],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -20.213809824391717,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_4dc8dd78b83a308ed76efccb50981277 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bedaec2ab4bf2af12ea207a0560633d4 = $(`<div id="html_bedaec2ab4bf2af12ea207a0560633d4" style="width: 100.0%; height: 100.0%;">Seq 4 ➝ 5</div>`)[0];
+                popup_4dc8dd78b83a308ed76efccb50981277.setContent(html_bedaec2ab4bf2af12ea207a0560633d4);
+            
+        
+
+        regular_polygon_marker_82020dd40a28ad0480938d38079c99a6.bindPopup(popup_4dc8dd78b83a308ed76efccb50981277)
+        ;
+
+        
+    
+    
+            var poly_line_2834e2008c5e785e8a55605a2668eaea = L.polyline(
+                [[43.631364, -79.414676], [43.606584, -79.50779999999999]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_2834e2008c5e785e8a55605a2668eaea.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 5 ➝ 6<br>LIVE NATION ➝ WM NEW TORONTO TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_b694ce191361d9746aca8133403d1df0 = new L.RegularPolygonMarker(
+                [43.618973999999994, -79.461238],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 159.8504264608245,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_06a6fa64063af77a96c6efe57a50114c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b781862e4c3272ce45c73b9475d9261d = $(`<div id="html_b781862e4c3272ce45c73b9475d9261d" style="width: 100.0%; height: 100.0%;">Seq 5 ➝ 6</div>`)[0];
+                popup_06a6fa64063af77a96c6efe57a50114c.setContent(html_b781862e4c3272ce45c73b9475d9261d);
+            
+        
+
+        regular_polygon_marker_b694ce191361d9746aca8133403d1df0.bindPopup(popup_06a6fa64063af77a96c6efe57a50114c)
+        ;
+
+        
+    
+    
+            var poly_line_e737a327ea4d67057465f5fbe46428a3 = L.polyline(
+                [[43.606584, -79.50779999999999], [43.70597, -79.3579535]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_e737a327ea4d67057465f5fbe46428a3.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 6 ➝ 7<br>WM NEW TORONTO TS ➝ Esandar Drive Hauling
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_7d38faf16e89e22b0429b2ae8cb01370 = new L.RegularPolygonMarker(
+                [43.656277, -79.43287674999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -42.564261331689465,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_02ec2f48a17d6fa6cd8613fd1ce696fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7541be3341e9d4e959f9d70b0868f731 = $(`<div id="html_7541be3341e9d4e959f9d70b0868f731" style="width: 100.0%; height: 100.0%;">Seq 6 ➝ 7</div>`)[0];
+                popup_02ec2f48a17d6fa6cd8613fd1ce696fb.setContent(html_7541be3341e9d4e959f9d70b0868f731);
+            
+        
+
+        regular_polygon_marker_7d38faf16e89e22b0429b2ae8cb01370.bindPopup(popup_02ec2f48a17d6fa6cd8613fd1ce696fb)
+        ;
+
+        
+    
+    
+            var poly_line_a3ce30aaaeb8cc7e5a6af29063074295 = L.polyline(
+                [[43.70597, -79.3579535], [43.70643, -79.35884399999999]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_a3ce30aaaeb8cc7e5a6af29063074295.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 7 ➝ 8<br>Esandar Drive Hauling ➝ Esandar Hauling Storage
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_5b3a99797f62b4331fdfa6eef4e2cec4 = new L.RegularPolygonMarker(
+                [43.706199999999995, -79.35839874999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 215.54911160245342,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_f26278ca0d7a75056237006d4b4d9ab6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6beee00da0a1db064e46d5423d15aab = $(`<div id="html_e6beee00da0a1db064e46d5423d15aab" style="width: 100.0%; height: 100.0%;">Seq 7 ➝ 8</div>`)[0];
+                popup_f26278ca0d7a75056237006d4b4d9ab6.setContent(html_e6beee00da0a1db064e46d5423d15aab);
+            
+        
+
+        regular_polygon_marker_5b3a99797f62b4331fdfa6eef4e2cec4.bindPopup(popup_f26278ca0d7a75056237006d4b4d9ab6)
+        ;
+
+        
+    
+    
+            var poly_line_b8ed881362054b0d042a88c9746c2f90 = L.polyline(
+                [[43.70641, -79.358864], [43.741074, -79.328575]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_b8ed881362054b0d042a88c9746c2f90.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 8 ➝ 9<br>Esandar Hauling Storage ➝ DEAN CLEAN SERVICES
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_48e198759ae68a1f98dccce490c76323 = new L.RegularPolygonMarker(
+                [43.723742, -79.34371949999999],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -57.73928166647545,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_821678bca70439b4dcdb0ea49b483456 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_846ab22edccbc0ba95ea75ddbff8f6f2 = $(`<div id="html_846ab22edccbc0ba95ea75ddbff8f6f2" style="width: 100.0%; height: 100.0%;">Seq 8 ➝ 9</div>`)[0];
+                popup_821678bca70439b4dcdb0ea49b483456.setContent(html_846ab22edccbc0ba95ea75ddbff8f6f2);
+            
+        
+
+        regular_polygon_marker_48e198759ae68a1f98dccce490c76323.bindPopup(popup_821678bca70439b4dcdb0ea49b483456)
+        ;
+
+        
+    
+    
+            var poly_line_bc1e6791afbe736641fad6320df032c7 = L.polyline(
+                [[43.741074, -79.328575], [43.706528, -79.35788]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_bc1e6791afbe736641fad6320df032c7.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 9 ➝ 10<br>DEAN CLEAN SERVICES ➝ WM ESANDAR TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_72dc3c15ab938737fe020918d0b9eab8 = new L.RegularPolygonMarker(
+                [43.723800999999995, -79.3432275],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 121.52016396975276,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_3f461ccea4fe60835cb808d0c328a4f1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_960273d6f6c2375034a916c4197cdd41 = $(`<div id="html_960273d6f6c2375034a916c4197cdd41" style="width: 100.0%; height: 100.0%;">Seq 9 ➝ 10</div>`)[0];
+                popup_3f461ccea4fe60835cb808d0c328a4f1.setContent(html_960273d6f6c2375034a916c4197cdd41);
+            
+        
+
+        regular_polygon_marker_72dc3c15ab938737fe020918d0b9eab8.bindPopup(popup_3f461ccea4fe60835cb808d0c328a4f1)
+        ;
+
+        
+    
+    
+            var poly_line_de25fb64ebe55d6ed01a7f4ed46e7337 = L.polyline(
+                [[43.706528, -79.35788], [43.782199, -79.20641]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_de25fb64ebe55d6ed01a7f4ed46e7337.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 10 ➝ 11<br>WM ESANDAR TS ➝ SCARBOROUGH CENTENARY
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_b601a6c48ca795601093686a9074d62c = new L.RegularPolygonMarker(
+                [43.7443635, -79.282145],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -34.717052366914345,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_1eb6964511b82d0a704eda62c0f72154 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a4b48f40e56c4c1d0014e82b9b877da7 = $(`<div id="html_a4b48f40e56c4c1d0014e82b9b877da7" style="width: 100.0%; height: 100.0%;">Seq 10 ➝ 11</div>`)[0];
+                popup_1eb6964511b82d0a704eda62c0f72154.setContent(html_a4b48f40e56c4c1d0014e82b9b877da7);
+            
+        
+
+        regular_polygon_marker_b601a6c48ca795601093686a9074d62c.bindPopup(popup_1eb6964511b82d0a704eda62c0f72154)
+        ;
+
+        
+    
+    
+            var poly_line_541cc1db218553433e411f057da912a2 = L.polyline(
+                [[43.782199, -79.20641], [43.644623, -79.336624]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_541cc1db218553433e411f057da912a2.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 11 ➝ 12<br>SCARBOROUGH CENTENARY ➝ GFL UNWIN TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_8df6054d37ae3af91e8282c34749dcbf = new L.RegularPolygonMarker(
+                [43.713411, -79.271517],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 124.42207472633643,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_b35fb9113bfb2edca08081137c4a1873 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dce9d1b56ff5edf873e3958f5d531c30 = $(`<div id="html_dce9d1b56ff5edf873e3958f5d531c30" style="width: 100.0%; height: 100.0%;">Seq 11 ➝ 12</div>`)[0];
+                popup_b35fb9113bfb2edca08081137c4a1873.setContent(html_dce9d1b56ff5edf873e3958f5d531c30);
+            
+        
+
+        regular_polygon_marker_8df6054d37ae3af91e8282c34749dcbf.bindPopup(popup_b35fb9113bfb2edca08081137c4a1873)
+        ;
+
+        
+    
+    
+            var poly_line_f122e51307abb8e4837284fe6511394b = L.polyline(
+                [[43.644623, -79.336624], [43.75628, -79.2755]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_f122e51307abb8e4837284fe6511394b.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 12 ➝ 13<br>GFL UNWIN TS ➝ SALVATION ARMY #5420 RESPC# 425420
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_cbe1f2d42bc97eccd587194fd3d5b6c8 = new L.RegularPolygonMarker(
+                [43.7004515, -79.306062],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": -68.42901656271687,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_ba909108934d98d94f3a94604e928bde = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a571b1bee21f07a0cff3cbb1c228acd5 = $(`<div id="html_a571b1bee21f07a0cff3cbb1c228acd5" style="width: 100.0%; height: 100.0%;">Seq 12 ➝ 13</div>`)[0];
+                popup_ba909108934d98d94f3a94604e928bde.setContent(html_a571b1bee21f07a0cff3cbb1c228acd5);
+            
+        
+
+        regular_polygon_marker_cbe1f2d42bc97eccd587194fd3d5b6c8.bindPopup(popup_ba909108934d98d94f3a94604e928bde)
+        ;
+
+        
+    
+    
+            var poly_line_48ed2f95ac5d10f00fee506d9ce0818c = L.polyline(
+                [[43.75628, -79.2755], [43.720352, -79.32092]],
+                {"bubblingMouseEvents": true, "color": "#0de801", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0de801", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+            poly_line_48ed2f95ac5d10f00fee506d9ce0818c.bindTooltip(
+                `<div>
+                     Route RO_ZWHIN: Seq 13 ➝ 14<br>SALVATION ARMY #5420 RESPC# 425420 ➝ BERMONDSEY TS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var regular_polygon_marker_ec9b3ed7557e7d435452255775b8f900 = new L.RegularPolygonMarker(
+                [43.738316, -79.29821],
+                {
+  "stroke": true,
+  "color": "black",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "black",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 10,
+  "numberOfSides": 3,
+  "rotation": 132.42387916603238,
+}
+            ).addTo(feature_group_04a8b237c0eec8e92f15a65f7344a2fc);
+        
+    
+        var popup_6b80d187765cc9016b6ee926719db6fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6793850448cdaaa98645878c94bc910f = $(`<div id="html_6793850448cdaaa98645878c94bc910f" style="width: 100.0%; height: 100.0%;">Seq 13 ➝ 14</div>`)[0];
+                popup_6b80d187765cc9016b6ee926719db6fd.setContent(html_6793850448cdaaa98645878c94bc910f);
+            
+        
+
+        regular_polygon_marker_ec9b3ed7557e7d435452255775b8f900.bindPopup(popup_6b80d187765cc9016b6ee926719db6fd)
+        ;
+
+        
+    
+    
+            feature_group_04a8b237c0eec8e92f15a65f7344a2fc.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var feature_group_29501b9e3842356114b0332eb6ed817f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_317d30a72150f2c534fb5e2c7f1d9078 = L.circleMarker(
+                [43.70595, -79.3579735],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_29501b9e3842356114b0332eb6ed817f);
+        
+    
+        var popup_ee687333624db3e4e56310119a961d53 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_fd47b98658f118e225f9fdd681108a8f = $(`<div id="html_fd47b98658f118e225f9fdd681108a8f" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Drive Hauling<br>             </div>`)[0];
+                popup_ee687333624db3e4e56310119a961d53.setContent(html_fd47b98658f118e225f9fdd681108a8f);
+            
+        
+
+        circle_marker_317d30a72150f2c534fb5e2c7f1d9078.bindPopup(popup_ee687333624db3e4e56310119a961d53)
+        ;
+
+        
+    
+    
+            var circle_marker_4f4c06221778ef7bd98dfb4560a4f14b = L.circleMarker(
+                [43.70595, -79.3579735],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_29501b9e3842356114b0332eb6ed817f);
+        
+    
+        var popup_efc420ac83a4e1d91bbe3e23da4bc7c7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_bda5ab00722cadf153d5503512544b3f = $(`<div id="html_bda5ab00722cadf153d5503512544b3f" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Drive Hauling<br>             </div>`)[0];
+                popup_efc420ac83a4e1d91bbe3e23da4bc7c7.setContent(html_bda5ab00722cadf153d5503512544b3f);
+            
+        
+
+        circle_marker_4f4c06221778ef7bd98dfb4560a4f14b.bindPopup(popup_efc420ac83a4e1d91bbe3e23da4bc7c7)
+        ;
+
+        
+    
+    
+            var circle_marker_75597f4883eaed697509949772a78b00 = L.circleMarker(
+                [43.70595, -79.3579735],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_29501b9e3842356114b0332eb6ed817f);
+        
+    
+        var popup_6caa9c13711b612b5566523a4d72dc65 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f19f2a707c28accab49bfc54d335be98 = $(`<div id="html_f19f2a707c28accab49bfc54d335be98" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Drive Hauling<br>             </div>`)[0];
+                popup_6caa9c13711b612b5566523a4d72dc65.setContent(html_f19f2a707c28accab49bfc54d335be98);
+            
+        
+
+        circle_marker_75597f4883eaed697509949772a78b00.bindPopup(popup_6caa9c13711b612b5566523a4d72dc65)
+        ;
+
+        
+    
+    
+            var circle_marker_0b0c29efec93bda681cdd37d8aea513b = L.circleMarker(
+                [43.70595, -79.3579735],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_29501b9e3842356114b0332eb6ed817f);
+        
+    
+        var popup_c595fea79c7d644a95b4430579371bab = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_499e4d155466d6ea2e84d312713d51a9 = $(`<div id="html_499e4d155466d6ea2e84d312713d51a9" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Drive Hauling<br>             </div>`)[0];
+                popup_c595fea79c7d644a95b4430579371bab.setContent(html_499e4d155466d6ea2e84d312713d51a9);
+            
+        
+
+        circle_marker_0b0c29efec93bda681cdd37d8aea513b.bindPopup(popup_c595fea79c7d644a95b4430579371bab)
+        ;
+
+        
+    
+    
+            var circle_marker_5fa86a692c985e08fb479d4bb08adf2f = L.circleMarker(
+                [43.70595, -79.3579735],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_29501b9e3842356114b0332eb6ed817f);
+        
+    
+        var popup_56ea263a3696d6558ea32a54bcf65970 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_fcc76de8ac0474228b780ba8bd7c2678 = $(`<div id="html_fcc76de8ac0474228b780ba8bd7c2678" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Drive Hauling<br>             </div>`)[0];
+                popup_56ea263a3696d6558ea32a54bcf65970.setContent(html_fcc76de8ac0474228b780ba8bd7c2678);
+            
+        
+
+        circle_marker_5fa86a692c985e08fb479d4bb08adf2f.bindPopup(popup_56ea263a3696d6558ea32a54bcf65970)
+        ;
+
+        
+    
+    
+            var circle_marker_684fa48e1c396f080d66100132ccf4c1 = L.circleMarker(
+                [43.70595, -79.3579735],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_29501b9e3842356114b0332eb6ed817f);
+        
+    
+        var popup_8230ac745fd97c99e636d1d91c9dcdc5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_9e133a6771fc1fb5faae6ea361721405 = $(`<div id="html_9e133a6771fc1fb5faae6ea361721405" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Drive Hauling<br>             </div>`)[0];
+                popup_8230ac745fd97c99e636d1d91c9dcdc5.setContent(html_9e133a6771fc1fb5faae6ea361721405);
+            
+        
+
+        circle_marker_684fa48e1c396f080d66100132ccf4c1.bindPopup(popup_8230ac745fd97c99e636d1d91c9dcdc5)
+        ;
+
+        
+    
+    
+            feature_group_29501b9e3842356114b0332eb6ed817f.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var feature_group_16564f9a10ca1e8b4b49291004c60838 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_852b04011084439d6e15cffdcdc67b95 = L.circleMarker(
+                [43.629063, -79.52552],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_3f400a698a937b6e206cdb87ecb70dc7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_cd5454058a40057a34b32be8d1ca2a5f = $(`<div id="html_cd5454058a40057a34b32be8d1ca2a5f" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> KOREX CANADA<br>             </div>`)[0];
+                popup_3f400a698a937b6e206cdb87ecb70dc7.setContent(html_cd5454058a40057a34b32be8d1ca2a5f);
+            
+        
+
+        circle_marker_852b04011084439d6e15cffdcdc67b95.bindPopup(popup_3f400a698a937b6e206cdb87ecb70dc7)
+        ;
+
+        
+    
+    
+            var circle_marker_c5e09dc2870d2eba9511a277829bae93 = L.circleMarker(
+                [43.598934, -79.54406],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_b008394fac45cc1dc8d3afba77bb2364 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b4ea6f4b2817c614f9a8fffd96740cb6 = $(`<div id="html_b4ea6f4b2817c614f9a8fffd96740cb6" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> GREEN EVENT NINJAS<br>             </div>`)[0];
+                popup_b008394fac45cc1dc8d3afba77bb2364.setContent(html_b4ea6f4b2817c614f9a8fffd96740cb6);
+            
+        
+
+        circle_marker_c5e09dc2870d2eba9511a277829bae93.bindPopup(popup_b008394fac45cc1dc8d3afba77bb2364)
+        ;
+
+        
+    
+    
+            var circle_marker_e79af87f82742cf2e1496e35a2b94434 = L.circleMarker(
+                [43.756733, -79.24636],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_d5b4b11f3dfde2d53a7dfc06d1bf0de6 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_cb7fc131d4bd70aa5d720cee33872335 = $(`<div id="html_cb7fc131d4bd70aa5d720cee33872335" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> SCARBOROUGH HOSPITAL - GENERAL<br>             </div>`)[0];
+                popup_d5b4b11f3dfde2d53a7dfc06d1bf0de6.setContent(html_cb7fc131d4bd70aa5d720cee33872335);
+            
+        
+
+        circle_marker_e79af87f82742cf2e1496e35a2b94434.bindPopup(popup_d5b4b11f3dfde2d53a7dfc06d1bf0de6)
+        ;
+
+        
+    
+    
+            var circle_marker_cc59099270b029021bf47fdf4daf8dbd = L.circleMarker(
+                [43.756733, -79.24636],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_f82d9e3e96b1333b00440bbe4fc3c01e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_dbaa720ee09b1de41d707541004a963f = $(`<div id="html_dbaa720ee09b1de41d707541004a963f" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> SCARBOROUGH HOSPITAL - GENERAL<br>             </div>`)[0];
+                popup_f82d9e3e96b1333b00440bbe4fc3c01e.setContent(html_dbaa720ee09b1de41d707541004a963f);
+            
+        
+
+        circle_marker_cc59099270b029021bf47fdf4daf8dbd.bindPopup(popup_f82d9e3e96b1333b00440bbe4fc3c01e)
+        ;
+
+        
+    
+    
+            var circle_marker_2a4c586fbc435709c9e5bc6947c34e5e = L.circleMarker(
+                [43.73015, -79.28418],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_42749829c7a494b52a98844c6633dfe5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_99e6ae932ce1044d284c398eecdf5808 = $(`<div id="html_99e6ae932ce1044d284c398eecdf5808" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> VALUE VILLAGE 2158<br>             </div>`)[0];
+                popup_42749829c7a494b52a98844c6633dfe5.setContent(html_99e6ae932ce1044d284c398eecdf5808);
+            
+        
+
+        circle_marker_2a4c586fbc435709c9e5bc6947c34e5e.bindPopup(popup_42749829c7a494b52a98844c6633dfe5)
+        ;
+
+        
+    
+    
+            var circle_marker_46620b78c65c0ee1905ad883aecdf3f1 = L.circleMarker(
+                [43.73015, -79.28418],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_8ed7b0ca733adecd981f729c9ecfe5b9 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f88d902739378a8e53bf7f89f0c4c3c0 = $(`<div id="html_f88d902739378a8e53bf7f89f0c4c3c0" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> VALUE VILLAGE 2158<br>             </div>`)[0];
+                popup_8ed7b0ca733adecd981f729c9ecfe5b9.setContent(html_f88d902739378a8e53bf7f89f0c4c3c0);
+            
+        
+
+        circle_marker_46620b78c65c0ee1905ad883aecdf3f1.bindPopup(popup_8ed7b0ca733adecd981f729c9ecfe5b9)
+        ;
+
+        
+    
+    
+            var circle_marker_4714ba5d8b405e1ee541abdf4d69d4db = L.circleMarker(
+                [43.74206, -79.22367],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_85b924594ea2a9b5d6b640c6b4910055 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_83a211b5c3b2f3325986dc151ffec06a = $(`<div id="html_83a211b5c3b2f3325986dc151ffec06a" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WAL-MART 1117 (L)<br>             </div>`)[0];
+                popup_85b924594ea2a9b5d6b640c6b4910055.setContent(html_83a211b5c3b2f3325986dc151ffec06a);
+            
+        
+
+        circle_marker_4714ba5d8b405e1ee541abdf4d69d4db.bindPopup(popup_85b924594ea2a9b5d6b640c6b4910055)
+        ;
+
+        
+    
+    
+            var circle_marker_773a8de3036e193d45225bf0fe642583 = L.circleMarker(
+                [43.60662, -79.50755],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_9e032e3e1a0c7652e131e09faca12eef = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_56ff188f7198bcf188d704d4f60cae16 = $(`<div id="html_56ff188f7198bcf188d704d4f60cae16" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM NEW TORONTO HOUSE ACCT<br>             </div>`)[0];
+                popup_9e032e3e1a0c7652e131e09faca12eef.setContent(html_56ff188f7198bcf188d704d4f60cae16);
+            
+        
+
+        circle_marker_773a8de3036e193d45225bf0fe642583.bindPopup(popup_9e032e3e1a0c7652e131e09faca12eef)
+        ;
+
+        
+    
+    
+            var circle_marker_10da43caf7af1912ba698cb873f427f1 = L.circleMarker(
+                [43.63465, -79.432236],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_a20eb3e114db94df8a88e51a34c2ceb1 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1aa5eda73159c7e9ef94385bdecdcd3a = $(`<div id="html_1aa5eda73159c7e9ef94385bdecdcd3a" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> E.W. BICKLE CENTRE<br>             </div>`)[0];
+                popup_a20eb3e114db94df8a88e51a34c2ceb1.setContent(html_1aa5eda73159c7e9ef94385bdecdcd3a);
+            
+        
+
+        circle_marker_10da43caf7af1912ba698cb873f427f1.bindPopup(popup_a20eb3e114db94df8a88e51a34c2ceb1)
+        ;
+
+        
+    
+    
+            var circle_marker_c86f65c67304b31088c61984e542eb00 = L.circleMarker(
+                [43.63465, -79.432236],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_6d888b1d467851902978206b1fc1c65c = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_6f99a7189bfae3ca04982af14437eed2 = $(`<div id="html_6f99a7189bfae3ca04982af14437eed2" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> E.W. BICKLE CENTRE<br>             </div>`)[0];
+                popup_6d888b1d467851902978206b1fc1c65c.setContent(html_6f99a7189bfae3ca04982af14437eed2);
+            
+        
+
+        circle_marker_c86f65c67304b31088c61984e542eb00.bindPopup(popup_6d888b1d467851902978206b1fc1c65c)
+        ;
+
+        
+    
+    
+            var circle_marker_a972f9fe0ca54df9619395c684cf3993 = L.circleMarker(
+                [43.66104, -79.39208],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_213d8210819ee23f59f9d3565dad40b6 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e5a35b5780bfcc998f830a015d3bef3d = $(`<div id="html_e5a35b5780bfcc998f830a015d3bef3d" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> UOT SGC-MCMURRICH BUILDING<br>             </div>`)[0];
+                popup_213d8210819ee23f59f9d3565dad40b6.setContent(html_e5a35b5780bfcc998f830a015d3bef3d);
+            
+        
+
+        circle_marker_a972f9fe0ca54df9619395c684cf3993.bindPopup(popup_213d8210819ee23f59f9d3565dad40b6)
+        ;
+
+        
+    
+    
+            var circle_marker_be498bbfb7557a268b20a6c677527331 = L.circleMarker(
+                [43.66104, -79.39208],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_846e19e645e8cb387efcc25f907d9c13 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_351493bd4231ca1a306d41bb1021255f = $(`<div id="html_351493bd4231ca1a306d41bb1021255f" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> UOT SGC-MCMURRICH BUILDING<br>             </div>`)[0];
+                popup_846e19e645e8cb387efcc25f907d9c13.setContent(html_351493bd4231ca1a306d41bb1021255f);
+            
+        
+
+        circle_marker_be498bbfb7557a268b20a6c677527331.bindPopup(popup_846e19e645e8cb387efcc25f907d9c13)
+        ;
+
+        
+    
+    
+            var circle_marker_0a486d62de01809ea79f77f906aece8f = L.circleMarker(
+                [43.70916, -79.48074],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_996690a3b6b5750c8798c4408549d39b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e9caef494b4dbaa172aa815e29a92878 = $(`<div id="html_e9caef494b4dbaa172aa815e29a92878" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> VECTOR97-1442 LAWRENCE AVE W APTS<br>             </div>`)[0];
+                popup_996690a3b6b5750c8798c4408549d39b.setContent(html_e9caef494b4dbaa172aa815e29a92878);
+            
+        
+
+        circle_marker_0a486d62de01809ea79f77f906aece8f.bindPopup(popup_996690a3b6b5750c8798c4408549d39b)
+        ;
+
+        
+    
+    
+            var circle_marker_90f8f937506eb4d79b22d176c963a714 = L.circleMarker(
+                [43.70916, -79.48074],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_c0ba590f2f716175c0ea1ffefd72a149 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_5b0a5df71f23acf95b4becc9b7768130 = $(`<div id="html_5b0a5df71f23acf95b4becc9b7768130" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> VECTOR97-1442 LAWRENCE AVE W APTS<br>             </div>`)[0];
+                popup_c0ba590f2f716175c0ea1ffefd72a149.setContent(html_5b0a5df71f23acf95b4becc9b7768130);
+            
+        
+
+        circle_marker_90f8f937506eb4d79b22d176c963a714.bindPopup(popup_c0ba590f2f716175c0ea1ffefd72a149)
+        ;
+
+        
+    
+    
+            var circle_marker_389cf70572f10adb2ca379638f80aef0 = L.circleMarker(
+                [43.70891, -79.47919],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_5d19258f69684577d8886ce80183a2f1 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_90f254c54417439f5f46db5a98b2c400 = $(`<div id="html_90f254c54417439f5f46db5a98b2c400" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> VECTOR97-1440 LAWRENCE AVE W APTS<br>             </div>`)[0];
+                popup_5d19258f69684577d8886ce80183a2f1.setContent(html_90f254c54417439f5f46db5a98b2c400);
+            
+        
+
+        circle_marker_389cf70572f10adb2ca379638f80aef0.bindPopup(popup_5d19258f69684577d8886ce80183a2f1)
+        ;
+
+        
+    
+    
+            var circle_marker_3fbdda2784eab91d9ae12fe9083722f7 = L.circleMarker(
+                [43.70891, -79.47919],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_2f99ecfeda3825e9d41da008e6aab46d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_02f4044900a06b28e3975f00a75aed04 = $(`<div id="html_02f4044900a06b28e3975f00a75aed04" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> VECTOR97-1440 LAWRENCE AVE W APTS<br>             </div>`)[0];
+                popup_2f99ecfeda3825e9d41da008e6aab46d.setContent(html_02f4044900a06b28e3975f00a75aed04);
+            
+        
+
+        circle_marker_3fbdda2784eab91d9ae12fe9083722f7.bindPopup(popup_2f99ecfeda3825e9d41da008e6aab46d)
+        ;
+
+        
+    
+    
+            var circle_marker_01d975f5b5eb906d1dfd3d65e6788fd2 = L.circleMarker(
+                [43.60662, -79.50755],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_a7e797df5d41edf223c13c24a60e9a63 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_84ef5edc305c23acda21914bd4914afc = $(`<div id="html_84ef5edc305c23acda21914bd4914afc" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM NEW TORONTO HOUSE ACCT<br>             </div>`)[0];
+                popup_a7e797df5d41edf223c13c24a60e9a63.setContent(html_84ef5edc305c23acda21914bd4914afc);
+            
+        
+
+        circle_marker_01d975f5b5eb906d1dfd3d65e6788fd2.bindPopup(popup_a7e797df5d41edf223c13c24a60e9a63)
+        ;
+
+        
+    
+    
+            var circle_marker_3fd424270a3eefa767facda7d37602c5 = L.circleMarker(
+                [43.631344, -79.414696],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_80d20f044695c74d56eb187eae928fd7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_755f46baea8b9ce3601d0598a4e41cdd = $(`<div id="html_755f46baea8b9ce3601d0598a4e41cdd" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> LIVE NATION<br>             </div>`)[0];
+                popup_80d20f044695c74d56eb187eae928fd7.setContent(html_755f46baea8b9ce3601d0598a4e41cdd);
+            
+        
+
+        circle_marker_3fd424270a3eefa767facda7d37602c5.bindPopup(popup_80d20f044695c74d56eb187eae928fd7)
+        ;
+
+        
+    
+    
+            var circle_marker_8a55e28c60ee3346c5f79e0e8ddc99c2 = L.circleMarker(
+                [43.631344, -79.414696],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_dda70406bb5b2ebcf53621009a904338 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8c67d8fd75964674c4af24c7a09aa09c = $(`<div id="html_8c67d8fd75964674c4af24c7a09aa09c" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> LIVE NATION<br>             </div>`)[0];
+                popup_dda70406bb5b2ebcf53621009a904338.setContent(html_8c67d8fd75964674c4af24c7a09aa09c);
+            
+        
+
+        circle_marker_8a55e28c60ee3346c5f79e0e8ddc99c2.bindPopup(popup_dda70406bb5b2ebcf53621009a904338)
+        ;
+
+        
+    
+    
+            var circle_marker_655ebf94f98ced72ef2aed6035d7d5fa = L.circleMarker(
+                [43.741074, -79.328575],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_fcf11dbee751caebc25b1aeb76ba4912 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_ab119b34a05d6dea8a84b70b9b57a0e4 = $(`<div id="html_ab119b34a05d6dea8a84b70b9b57a0e4" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> DEAN CLEAN SERVICES<br>             </div>`)[0];
+                popup_fcf11dbee751caebc25b1aeb76ba4912.setContent(html_ab119b34a05d6dea8a84b70b9b57a0e4);
+            
+        
+
+        circle_marker_655ebf94f98ced72ef2aed6035d7d5fa.bindPopup(popup_fcf11dbee751caebc25b1aeb76ba4912)
+        ;
+
+        
+    
+    
+            var circle_marker_dee5064c780be75cfc8ab2074048c1b2 = L.circleMarker(
+                [43.782199, -79.20641],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_7e6f843f7e45779790535fc4611f30dc = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b4e5782c4b2c0aa303649fcec0b57cf2 = $(`<div id="html_b4e5782c4b2c0aa303649fcec0b57cf2" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> SCARBOROUGH CENTENARY<br>             </div>`)[0];
+                popup_7e6f843f7e45779790535fc4611f30dc.setContent(html_b4e5782c4b2c0aa303649fcec0b57cf2);
+            
+        
+
+        circle_marker_dee5064c780be75cfc8ab2074048c1b2.bindPopup(popup_7e6f843f7e45779790535fc4611f30dc)
+        ;
+
+        
+    
+    
+            var circle_marker_f7cdb007f798778c3d022b56a77d2b85 = L.circleMarker(
+                [43.75628, -79.2755],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_16564f9a10ca1e8b4b49291004c60838);
+        
+    
+        var popup_f378a57bf3c57324c2ca4cce6366b277 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_67f137fa0b2cc1c511272be4b25f904a = $(`<div id="html_67f137fa0b2cc1c511272be4b25f904a" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> SALVATION ARMY #5420 RESPC# 425420<br>             </div>`)[0];
+                popup_f378a57bf3c57324c2ca4cce6366b277.setContent(html_67f137fa0b2cc1c511272be4b25f904a);
+            
+        
+
+        circle_marker_f7cdb007f798778c3d022b56a77d2b85.bindPopup(popup_f378a57bf3c57324c2ca4cce6366b277)
+        ;
+
+        
+    
+    
+            feature_group_16564f9a10ca1e8b4b49291004c60838.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var feature_group_a6cafa9af54086b092a76ada9be0a0b8 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_be5283b5e0a71d5cf010824e6c9fb5d3 = L.circleMarker(
+                [43.70641, -79.358864],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a6cafa9af54086b092a76ada9be0a0b8);
+        
+    
+        var popup_3adc5a48e0dfe5950a4f5eb92e84ea2d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_cb94207e10ff54f21c0c5021119ddc60 = $(`<div id="html_cb94207e10ff54f21c0c5021119ddc60" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Hauling Storage<br>             </div>`)[0];
+                popup_3adc5a48e0dfe5950a4f5eb92e84ea2d.setContent(html_cb94207e10ff54f21c0c5021119ddc60);
+            
+        
+
+        circle_marker_be5283b5e0a71d5cf010824e6c9fb5d3.bindPopup(popup_3adc5a48e0dfe5950a4f5eb92e84ea2d)
+        ;
+
+        
+    
+    
+            var circle_marker_738142ffda3a1b2d41639e04c2c3c60a = L.circleMarker(
+                [43.70641, -79.358864],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a6cafa9af54086b092a76ada9be0a0b8);
+        
+    
+        var popup_b15a78499dff3e6474051f0f06a9209d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8d4a9058e3654dd313debfe36edcadab = $(`<div id="html_8d4a9058e3654dd313debfe36edcadab" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Hauling Storage<br>             </div>`)[0];
+                popup_b15a78499dff3e6474051f0f06a9209d.setContent(html_8d4a9058e3654dd313debfe36edcadab);
+            
+        
+
+        circle_marker_738142ffda3a1b2d41639e04c2c3c60a.bindPopup(popup_b15a78499dff3e6474051f0f06a9209d)
+        ;
+
+        
+    
+    
+            var circle_marker_57783daf65d2cbbc9b6b3011368f6e31 = L.circleMarker(
+                [43.70641, -79.358864],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a6cafa9af54086b092a76ada9be0a0b8);
+        
+    
+        var popup_6ee55e93edb50c54d886c696782097ce = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_84f3442c1584efb86dcd7a9c5454dc29 = $(`<div id="html_84f3442c1584efb86dcd7a9c5454dc29" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> Esandar Hauling Storage<br>             </div>`)[0];
+                popup_6ee55e93edb50c54d886c696782097ce.setContent(html_84f3442c1584efb86dcd7a9c5454dc29);
+            
+        
+
+        circle_marker_57783daf65d2cbbc9b6b3011368f6e31.bindPopup(popup_6ee55e93edb50c54d886c696782097ce)
+        ;
+
+        
+    
+    
+            feature_group_a6cafa9af54086b092a76ada9be0a0b8.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var feature_group_715ccf9243fde5a9be66ba8639c64b80 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_bbd6ac4b94b5f1a2ac0b4e1eca041e98 = L.circleMarker(
+                [43.622147, -79.54178],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_2db083d3fe9902666f092e85f227d32e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_563c1739aeadf8070a231decb876fc44 = $(`<div id="html_563c1739aeadf8070a231decb876fc44" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> METALOGICS<br>             </div>`)[0];
+                popup_2db083d3fe9902666f092e85f227d32e.setContent(html_563c1739aeadf8070a231decb876fc44);
+            
+        
+
+        circle_marker_bbd6ac4b94b5f1a2ac0b4e1eca041e98.bindPopup(popup_2db083d3fe9902666f092e85f227d32e)
+        ;
+
+        
+    
+    
+            var circle_marker_0eb0e0d7e30ec2f4d0f2574c46ece510 = L.circleMarker(
+                [43.606564, -79.50782],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_a1aff4909881a4c54e4216e1e511eb50 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_c2e29e5b23223fa04494948fe1bd7e86 = $(`<div id="html_c2e29e5b23223fa04494948fe1bd7e86" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM NEW TORONTO TS<br>             </div>`)[0];
+                popup_a1aff4909881a4c54e4216e1e511eb50.setContent(html_c2e29e5b23223fa04494948fe1bd7e86);
+            
+        
+
+        circle_marker_0eb0e0d7e30ec2f4d0f2574c46ece510.bindPopup(popup_a1aff4909881a4c54e4216e1e511eb50)
+        ;
+
+        
+    
+    
+            var circle_marker_acb6f2f57bceb409d10f30c4de9c8fd7 = L.circleMarker(
+                [43.606564, -79.50782],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_ca7b8915c801673a30ea14afc58885b7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_c64bf315953be1af4cb3aa761848ce3e = $(`<div id="html_c64bf315953be1af4cb3aa761848ce3e" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM NEW TORONTO TS<br>             </div>`)[0];
+                popup_ca7b8915c801673a30ea14afc58885b7.setContent(html_c64bf315953be1af4cb3aa761848ce3e);
+            
+        
+
+        circle_marker_acb6f2f57bceb409d10f30c4de9c8fd7.bindPopup(popup_ca7b8915c801673a30ea14afc58885b7)
+        ;
+
+        
+    
+    
+            var circle_marker_b42e2ac6d140e08568d0ba9462cd02b6 = L.circleMarker(
+                [43.644623, -79.336624],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_75ecc0403afff0704b215f63db00f97d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_47eaf6b321328db08930f18dbfbc1d19 = $(`<div id="html_47eaf6b321328db08930f18dbfbc1d19" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> GFL UNWIN TS<br>             </div>`)[0];
+                popup_75ecc0403afff0704b215f63db00f97d.setContent(html_47eaf6b321328db08930f18dbfbc1d19);
+            
+        
+
+        circle_marker_b42e2ac6d140e08568d0ba9462cd02b6.bindPopup(popup_75ecc0403afff0704b215f63db00f97d)
+        ;
+
+        
+    
+    
+            var circle_marker_e4094b009aa436da717b6fd26c53b263 = L.circleMarker(
+                [43.706528, -79.35788],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_b992bece23a6b70c9842e5c83b2228e9 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_235fa58a4f74c43550b10bd637331723 = $(`<div id="html_235fa58a4f74c43550b10bd637331723" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM ESANDAR TS<br>             </div>`)[0];
+                popup_b992bece23a6b70c9842e5c83b2228e9.setContent(html_235fa58a4f74c43550b10bd637331723);
+            
+        
+
+        circle_marker_e4094b009aa436da717b6fd26c53b263.bindPopup(popup_b992bece23a6b70c9842e5c83b2228e9)
+        ;
+
+        
+    
+    
+            var circle_marker_ef0bf3f9237c44d36bdde1148124c687 = L.circleMarker(
+                [43.606564, -79.50782],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_d061371daa9c859f22d3a3b517630f12 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_93d4012dcb95e5ca4bf4fb3dffdbca87 = $(`<div id="html_93d4012dcb95e5ca4bf4fb3dffdbca87" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM NEW TORONTO TS<br>             </div>`)[0];
+                popup_d061371daa9c859f22d3a3b517630f12.setContent(html_93d4012dcb95e5ca4bf4fb3dffdbca87);
+            
+        
+
+        circle_marker_ef0bf3f9237c44d36bdde1148124c687.bindPopup(popup_d061371daa9c859f22d3a3b517630f12)
+        ;
+
+        
+    
+    
+            var circle_marker_36c3246ef6c4f949d6588438092cee67 = L.circleMarker(
+                [43.606564, -79.50782],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_9ac1bd2de3e67ae72775900d566edfe3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_9bc5b0fb4e7185b0557b81675c69628d = $(`<div id="html_9bc5b0fb4e7185b0557b81675c69628d" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM NEW TORONTO TS<br>             </div>`)[0];
+                popup_9ac1bd2de3e67ae72775900d566edfe3.setContent(html_9bc5b0fb4e7185b0557b81675c69628d);
+            
+        
+
+        circle_marker_36c3246ef6c4f949d6588438092cee67.bindPopup(popup_9ac1bd2de3e67ae72775900d566edfe3)
+        ;
+
+        
+    
+    
+            var circle_marker_8cf2e058388b4944fb215d795bd8b195 = L.circleMarker(
+                [43.706528, -79.35788],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_b5348182fd9fafc8d1a66ce6ecc6d50b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_92d2cf6ca049fdcd2385c5f8375d9c73 = $(`<div id="html_92d2cf6ca049fdcd2385c5f8375d9c73" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM ESANDAR TS<br>             </div>`)[0];
+                popup_b5348182fd9fafc8d1a66ce6ecc6d50b.setContent(html_92d2cf6ca049fdcd2385c5f8375d9c73);
+            
+        
+
+        circle_marker_8cf2e058388b4944fb215d795bd8b195.bindPopup(popup_b5348182fd9fafc8d1a66ce6ecc6d50b)
+        ;
+
+        
+    
+    
+            var circle_marker_7d3f68b42584ccacad32a3e41abe6177 = L.circleMarker(
+                [43.701523, -79.468834],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_b23152c9f45251a0fb50e440614caecf = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1ea4fb7b8e61f1565111c33f07dd4b4a = $(`<div id="html_1ea4fb7b8e61f1565111c33f07dd4b4a" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> GFL INGRAM<br>             </div>`)[0];
+                popup_b23152c9f45251a0fb50e440614caecf.setContent(html_1ea4fb7b8e61f1565111c33f07dd4b4a);
+            
+        
+
+        circle_marker_7d3f68b42584ccacad32a3e41abe6177.bindPopup(popup_b23152c9f45251a0fb50e440614caecf)
+        ;
+
+        
+    
+    
+            var circle_marker_c447930a8390a4f9c6e6b0738249bdf1 = L.circleMarker(
+                [43.701523, -79.468834],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_27cf9de658a37951c3ca2f28309f3f56 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e667d398cad0f115d045c454c70730e8 = $(`<div id="html_e667d398cad0f115d045c454c70730e8" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> GFL INGRAM<br>             </div>`)[0];
+                popup_27cf9de658a37951c3ca2f28309f3f56.setContent(html_e667d398cad0f115d045c454c70730e8);
+            
+        
+
+        circle_marker_c447930a8390a4f9c6e6b0738249bdf1.bindPopup(popup_27cf9de658a37951c3ca2f28309f3f56)
+        ;
+
+        
+    
+    
+            var circle_marker_1422291dcacdd873a0c6a6ad8299d8dd = L.circleMarker(
+                [43.606564, -79.50782],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_3eb9f6e3abc4c6082729f245e8aab3a7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_a36722231a05239b1beccd9bb54bdd69 = $(`<div id="html_a36722231a05239b1beccd9bb54bdd69" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM NEW TORONTO TS<br>             </div>`)[0];
+                popup_3eb9f6e3abc4c6082729f245e8aab3a7.setContent(html_a36722231a05239b1beccd9bb54bdd69);
+            
+        
+
+        circle_marker_1422291dcacdd873a0c6a6ad8299d8dd.bindPopup(popup_3eb9f6e3abc4c6082729f245e8aab3a7)
+        ;
+
+        
+    
+    
+            var circle_marker_6b64d056631643785407169fec8b8ed3 = L.circleMarker(
+                [43.606564, -79.50782],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_f9719df6aee646e5618715ab0e563c3d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4f530a29ac37ccca57a7417610a15ce7 = $(`<div id="html_4f530a29ac37ccca57a7417610a15ce7" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM NEW TORONTO TS<br>             </div>`)[0];
+                popup_f9719df6aee646e5618715ab0e563c3d.setContent(html_4f530a29ac37ccca57a7417610a15ce7);
+            
+        
+
+        circle_marker_6b64d056631643785407169fec8b8ed3.bindPopup(popup_f9719df6aee646e5618715ab0e563c3d)
+        ;
+
+        
+    
+    
+            var circle_marker_fbffeaddc29365b8e277ffd308958cbf = L.circleMarker(
+                [43.706528, -79.35788],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_454142592536cf0fae74ed4742bbc743 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f297474c32b7b75ffa46a5b2049d6397 = $(`<div id="html_f297474c32b7b75ffa46a5b2049d6397" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> WM ESANDAR TS<br>             </div>`)[0];
+                popup_454142592536cf0fae74ed4742bbc743.setContent(html_f297474c32b7b75ffa46a5b2049d6397);
+            
+        
+
+        circle_marker_fbffeaddc29365b8e277ffd308958cbf.bindPopup(popup_454142592536cf0fae74ed4742bbc743)
+        ;
+
+        
+    
+    
+            var circle_marker_02193e83f828aaeed0c6de5f5f1641bc = L.circleMarker(
+                [43.644623, -79.336624],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_6732c392e07296dac03a9621ef9d22dc = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_69d52c7e84d81b9a65337f39c6249902 = $(`<div id="html_69d52c7e84d81b9a65337f39c6249902" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> GFL UNWIN TS<br>             </div>`)[0];
+                popup_6732c392e07296dac03a9621ef9d22dc.setContent(html_69d52c7e84d81b9a65337f39c6249902);
+            
+        
+
+        circle_marker_02193e83f828aaeed0c6de5f5f1641bc.bindPopup(popup_6732c392e07296dac03a9621ef9d22dc)
+        ;
+
+        
+    
+    
+            var circle_marker_dae4cf0f4328024a7dc10df9926527c1 = L.circleMarker(
+                [43.720352, -79.32092],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.5, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_715ccf9243fde5a9be66ba8639c64b80);
+        
+    
+        var popup_dec2f327e57a84c2d70b4987dbbdd867 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_75ab722209e87468c0a36934a94e1fe0 = $(`<div id="html_75ab722209e87468c0a36934a94e1fe0" style="width: 100.0%; height: 100.0%;">             <b>Name:</b> BERMONDSEY TS<br>             </div>`)[0];
+                popup_dec2f327e57a84c2d70b4987dbbdd867.setContent(html_75ab722209e87468c0a36934a94e1fe0);
+            
+        
+
+        circle_marker_dae4cf0f4328024a7dc10df9926527c1.bindPopup(popup_dec2f327e57a84c2d70b4987dbbdd867)
+        ;
+
+        
+    
+    
+            feature_group_715ccf9243fde5a9be66ba8639c64b80.addTo(map_67cf0721ac232efd3fa57f11da37effa);
+        
+    
+            var layer_control_f34f08231d393cff8b08e85831509c48_layers = {
+                base_layers : {
+                    "CartoDB Voyager" : tile_layer_714e0f9fbbbaa9f7835c683f8339326e,
+                    "OpenStreetMap" : tile_layer_53125920ca17b57ed5457916f44cdcb6,
+                    "CartoDB Dark Matter" : tile_layer_25bd4fc7898564a00ac172b5ecc32d3e,
+                    "CartoDB Positron" : tile_layer_87e550948dfc9ac70b92c480451ffaaf,
+                    "Google Satellite" : tile_layer_ca34857ae27b35dc7372b2d9a966af25,
+                    "Google Terrain" : tile_layer_8b1eb8a8792d6c9874c0be774003af00,
+                    "Esri Satellite" : tile_layer_0ceefd537c8888109a79f8fece7f0bcc,
+                },
+                overlays :  {
+                    "Route RO_ZAJAM" : feature_group_bf06cdf28544a20901298d4669e32d56,
+                    "Route RO_ZRHIN" : feature_group_634910e82ac9f9822f76aff526ee6ff2,
+                    "Route RO_ZWHIN" : feature_group_04a8b237c0eec8e92f15a65f7344a2fc,
+                    "Yard/Site" : feature_group_29501b9e3842356114b0332eb6ed817f,
+                    "Customer" : feature_group_16564f9a10ca1e8b4b49291004c60838,
+                    "Container_yard" : feature_group_a6cafa9af54086b092a76ada9be0a0b8,
+                    "Landfill" : feature_group_715ccf9243fde5a9be66ba8639c64b80,
+                },
+            };
+            let layer_control_f34f08231d393cff8b08e85831509c48 = L.control.layers(
+                layer_control_f34f08231d393cff8b08e85831509c48_layers.base_layers,
+                layer_control_f34f08231d393cff8b08e85831509c48_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_67cf0721ac232efd3fa57f11da37effa);
+
+        
+</script>
+</html>
